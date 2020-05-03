@@ -82,3 +82,19 @@ GET a single user
 - `make api_shell` - this gives you a shell inside the API container (if needed)
 - `make postgres_shell` - this gives you a shell inside the Postgres container 
 - `make down` - stops all docker containers running
+
+### Running Flask app
+- Run the command `make api_shell`
+- Once inside the flask shell then run `python3 manage.py runserver`
+- Then open a browser and make a request to `http://localhost:5000/api/v1/test` and will retrieve a response
+
+### Connecting to PostgreSQL
+Once the docker containers are up (with the command `make up`) just use the following connection attributes:
+- PSQL_DATABASE_DB = walletcore
+- PSQL_DATABASE_PASSWORD = password
+- PSQL_DATABASE_HOST = postgres
+- PSQL_DATABASE_USER = tiernan
+- PSQL_DATABASE_PORT = 5432
+Also to connect via shell make the following steps:
+- Run the command `make postgres_shell`
+- Once inside the shell then run `psql --u tiernan --d walletcore`
