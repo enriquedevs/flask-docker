@@ -79,4 +79,8 @@ def create_app(config_name, add_logging=True):
 
     add_api_blueprint(app)
     add_rq_dashboard(app)
+
+    @app.before_first_request
+    def create_tables():
+        db.create_all()
     return app
