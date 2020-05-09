@@ -94,7 +94,7 @@ Once the docker containers are up (with the command `make up`) just use the foll
 - PSQL_DATABASE_PASSWORD = password
 - PSQL_DATABASE_HOST = postgres
 - PSQL_DATABASE_USER = tiernan
-- PSQL_DATABASE_PORT = 5432
+- PSQL_DATABASE_PORT = 5432 <br/><br/>
 Also to connect via shell make the following steps:
 - Run the command `make postgres_shell`
 - Once inside the shell then run `psql --u tiernan --d walletcore`
