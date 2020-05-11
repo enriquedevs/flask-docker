@@ -44,7 +44,16 @@ class UserAPI(MethodView):
 
         return make_response(jsonify({"success": "OK", "user": user.to_json()}), 201)
 
+    def get(self):
+        user_id = request.args.get('id')
+        if user_id is not None:
+            return make_response(jsonify({"user": User.query.filter_by(id=user_id).first()}), 201)
+        else:
+            return make_response(jsonify({"users": [user.to_json() for user in User.query.all()]}), 201)
 
-user_post_view = UserAPI.as_view("users_post")
 
-api.add_url_rule("/users/", view_func=user_post_view, methods=["POST"])
+
+user_view = UserAPI.as_view("users_view")
+
+api.add_url_rule("/users/", view_func=user_view, methods=["POST"])
+api.add_url_rule("/users/", view_func=user_view, methods=["GET"])
