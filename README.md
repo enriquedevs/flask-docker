@@ -84,7 +84,7 @@ GET a single user
 - `make down` - stops all docker containers running
 
 ### Running Flask app
-- Run the command `make api_shell`
+- Run the command `make api_shell` (make sure also it was runt the command `make up` before)
 - Once inside the flask shell then run `python3 manage.py runserver`
 - Then open a browser and make a request to `http://localhost:5000/api/v1/test` and will retrieve a response
 
